@@ -1,13 +1,9 @@
 # R script to scrape RMA, BOB, TBL website to extract current exchange rate 
 # for BTN against USD, AUD and SGD and 12 other rates (as on 04/09/2023)
+# and rate for Gold and Silver
 
 
 ### revised on 04 September 2025 based on 2023, 2024 versions
-
-### revised on 16 September, 2023
-# Added code for error handling HTTPS error, when website is down
-# Created new main file (BTN.Exchange ... ) and scrapeBanks_2 files
-# to run in parallel with the older cron job for safety
 
 
 # load libraries, install if not available 
@@ -24,22 +20,27 @@ if(!require(dplyr)) {
 }
 
 
-# call scripts to scrape the three websites
-# pass argument (URL)
-# receive value --> df per site
-
-source("scrapeRMA.R")
-rateRMA <- scrapeRMA()
-rate <- rateRMA
-
-rate <- cbind(rate, "Date (YMD)" = format(Sys.Date(), "%Y%m%d"))
-# View(rate)
+# call scripts to scrape RMA website for forex
+source("scrapeRMAforex.R")
+forex_df <- scrapeRMAforex()
 
 
-filename <- paste0("data/", format(Sys.time(), "%Y%m%d-%H%M%S"), ".csv")
+# call scripts to scrape RMA website for gold and silver rate
+source("ScrapeRMAGoldSilver.R")
+goldsil_df <- ScrapeRMAGoldSilver()
 
 
-write.csv(rate, filename, row.names = FALSE)
+# save files
+forex_filename <- paste0("data/", 
+                         format(Sys.time(), "%Y%m%d-%H%M%S"), ".csv")
+write.csv(forex_df, forex_filename, row.names = FALSE)
+
+
+goldsil_filename <- paste0("data/goldsilver/", 
+                           format(Sys.time(), "%Y%m%d-%H%M%S"), ".csv")
+write.csv(goldsil_df, goldsil_filename, row.names = FALSE)
+
+
 rm(list=ls())
 gc()
 cat("\014")
