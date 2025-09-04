@@ -2,15 +2,15 @@
 name: everyHour
 
 # Controls when the action will run.
+# on:
+#   schedule:
+#     - cron:  '27 * * * *'
+
+
 on:
-  schedule:
-    - cron:  '22 * * * *'
-
-
-#on:
-#  push:
-#    branches: 
-#    - main
+  push:
+    branches: 
+    - main
 
 jobs: 
   autoscrape:
