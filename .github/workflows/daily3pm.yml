@@ -1,16 +1,11 @@
-# daily scraping @ 9am BST
-name: daily9
+# daily scraping @ 3pm BST
+name: daily3pm
 
 # Controls when the action will run.
 on:
   schedule:
-    - cron:  '00 03 * * *' 
-    # 3 AM UTC or 9 AM BST
-
-# on:
-#   push:
-#     branches: 
-#     - main
+    - cron:  '00 09 * * *' 
+    # 9 AM UTC or 3 PM BST
 
 jobs: 
   autoscrape:
