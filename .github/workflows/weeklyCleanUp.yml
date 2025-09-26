@@ -1,11 +1,11 @@
-# weekly cleanup @ 1230 pm BST
-name: weeklycleanup@1230pm
+# weekly cleanup @ 13 pm BST
+name: weeklyCleanup@1pm
 
 # Controls when the action will run.
 on:
   schedule:
-    - cron:  '00 06 30 * *' 
-    # 6:30 AM UTC or 12:30 PM BST
+    - cron:  '0 7 * * 5' 
+    # 7 AM UTC or 1 PM BST, every Friday
 
 jobs: 
   autoscrape:
