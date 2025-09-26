@@ -8,7 +8,7 @@ on:
     # 7 AM UTC or 1 PM BST, every Friday
 
 jobs: 
-  autoscrape:
+  cleanup:
     # The type of runner that the job will run on
     runs-on: macos-latest
 
@@ -22,7 +22,7 @@ jobs:
       run: |
         R -e 'install.packages("dplyr")'
     # Run R script
-    - name: Scrape
+    - name: Cleanup
       run: Rscript fileCleanUp.R
 
  # Add new files in data folder, commit along with other modified files, push
