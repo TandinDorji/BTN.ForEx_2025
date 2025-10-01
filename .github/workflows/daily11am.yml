@@ -1,5 +1,5 @@
 # daily scraping @ 11am BST
-name: daily11am
+name: dailyScraping@11am
 
 # Controls when the action will run.
 on:
@@ -37,3 +37,4 @@ jobs:
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
         username: github-actions
+
