@@ -1,11 +1,12 @@
-# weekly cleanup @ 13 pm BST
-name: weeklyCleanup@1pm
+# weekly cleanup @ 16 pm BST
+name: weeklyCleanup@4pm
 
 # Controls when the action will run.
 on:
   schedule:
-    - cron:  '0 7 * * 5' 
-    # 7 AM UTC or 1 PM BST, every Friday
+    - cron:  '0 11 * * 5' 
+    # 11 AM UTC or 5 PM BST, every Friday after
+    # running both the daily scraping jobs (@ 11am and 3pm).
 
 jobs: 
   cleanup:
