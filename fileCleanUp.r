@@ -7,9 +7,9 @@
 # created on 26/09/2025
 
 #*Revised on 24/10/2025
-#*Revised script to accomodate the following scenarios:
-#* If both files are bad (RMA website was down), remove them both.
-#* If one file is bad, remove it and rename the other.
+    #*Revised script to accomodate the following scenarios:
+    #* If both files are bad (RMA website was down), remove them both.
+    #* If one file is bad, remove it and rename the other.
 
 # load libraries, install if not available 
 
